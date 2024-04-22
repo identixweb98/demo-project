@@ -1,0 +1,23 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_production:
+    runs-on: atul-rnd
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Copy website files to production server
+        run: scp -r index.html /var/www/html/
+
+      - name: Restart NGINX on production server
+        run: 'sudo systemctl restart nginx'
+
+    env:
+      LIVE_CREDENTIAL_CONFIG: ${{ secrets.LIVE_CREDENTIAL_CONFIG }}
+
