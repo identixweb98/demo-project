@@ -22,6 +22,3 @@ jobs:
       - name: Restart NGINX on production server
         run: 'sudo systemctl restart nginx'
 
-    env:
-      LIVE_CREDENTIAL_CONFIG: ${ LIVE_CREDENTIAL_CONFIG }
-
