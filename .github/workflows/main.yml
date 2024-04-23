@@ -15,7 +15,7 @@ jobs:
       - name: Set up credentials
         run: |
           
-          cp "${{secrets.LIVE_CREDENTIAL_CONFIG}}" "/var/www/html/test-cicd/git_creds/credentials.js"
+          cp "${{ secrets.LIVE_CREDENTIAL_CONFIG }}" "/var/www/html/test-cicd/git_creds/credentials.js"
 
       - name: Copy website files to production server
         run: |
