@@ -14,7 +14,7 @@ jobs:
 
       - name: Set up credentials
         run: |
-          #mkdir -p "/var/www/html/test-cicd/git_creds"
+          
           cp "$LIVE_CREDENTIAL_CONFIG" "/var/www/html/test-cicd/git_creds/credentials.js"
 
       - name: Copy website files to production server
