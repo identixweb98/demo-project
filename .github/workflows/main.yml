@@ -15,7 +15,15 @@ jobs:
       - name: Set up credentials
         run: |
           
-          cp "$LIVE_CREDENTIAL_CONFIG" "/var/www/html/test-cicd/git_creds/credentials.js"
+        echo "module.exports = {" > /var/www/html/test-cicd/git_creds/credentials.js
+        echo "  db_pass: '${{ env.db_pass }}'," >> /var/www/html/test-cicd/git_creds/credentials.js
+        echo "  api_key: '${{ env.api_key }}'," >> /var/www/html/test-cicd/git_creds/credentials.js
+        echo "  port: '${{ env.port }}'," >> /var/www/html/test-cicd/git_creds/credentials.js
+        echo "  access_key: '${{ env.access_key }}'," >> /var/www/html/test-cicd/git_creds/credentials.js
+        echo "  secret_key: '${{ env.secret_key }}'," >> /var/www/html/test-cicd/git_creds/credentials.js
+        echo "  username_key: '${{ env.username_key }}'," >> /var/www/html/test-cicd/git_creds/credentials.js
+        echo "  password_key: '${{ env.password_key }}'" >> /var/www/html/test-cicd/git_creds/credentials.js
+        echo "};" >> /var/www/html/test-cicd/git_creds/credentials.js
 
       - name: Copy website files to production server
         run: |
