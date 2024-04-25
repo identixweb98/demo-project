@@ -21,9 +21,9 @@ jobs:
           ${{ vars.LIVE_CREDENTIAL_CONFIG }}
           EOF
           
-      - name: remove curly bracket
-        run: |
-           sed -i 's/{//g; s/}//g' /var/www/html/test-cicd/git_creds/credentials.js
+      # - name: remove curly bracket
+      #   run: |
+      #      sed -i 's/{//g; s/}//g' /var/www/html/test-cicd/git_creds/credentials.js
 
       - name: Copy website files to production server
         run: |
