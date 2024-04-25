@@ -19,7 +19,7 @@ jobs:
           
           cat << EOF > /var/www/html/test-cicd/git_creds/credentials.js
            { 
-              '${{ vars.LIVE_CREDENTIAL_CONFIG }}'
+              ${{ vars.LIVE_CREDENTIAL_CONFIG }}
            }
           EOF
           
