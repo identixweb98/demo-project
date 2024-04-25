@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy_production:
-    runs-on: self-hosted
+    runs-on: atul
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
       - name: Set up credentials
         run: |
           
-          cp "${{ env.LIVE_CREDENTIAL_CONFIG }}" "/var/www/html/test-cicd/git_creds/credentials.js"
+          cp "$LIVE_CREDENTIAL_CONFIG" "/var/www/html/test-cicd/git_creds/credentials.js"
 
       - name: Copy website files to production server
         run: |
