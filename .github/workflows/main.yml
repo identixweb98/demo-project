@@ -16,16 +16,15 @@ jobs:
         run: |
           
           cat << EOF > /var/www/html/test-cicd/git_creds/credentials.js
-          const credentials = {
+          { db_pass = '${{ secrets.db_pass }}',
+            api_key = '${{ secrets.api_key }}',
+            port = '${{ secrets.port }}',
+            access_key = '${{ secrets.access_key }}',
+            secret_key = '${{ secrets.secret_key }}',
+            username_key = '${{ secrets.username_key }}',
+            password_key = '${{ secrets.password_key }}'
+           }
           EOF
-        
-          # Iterate over all secrets
-          for var in $(printenv | grep -E "^SECRETS_" | sed -E 's/^SECRETS_//'); do
-              echo "  ${var}: '${{ secrets.${var} }}'," >> /var/www/html/test-cicd/git_creds/credentials.js
-          done
-        
-          # Complete the JavaScript file
-          echo "};" >> /var/www/html/test-cicd/git_creds/credentials.js
           
       - name: remove curly bracket
         run: |
