@@ -17,13 +17,13 @@ jobs:
           
           cat << EOF > /var/www/html/test-cicd/git_creds/credentials.js
           module.exports = {
-          db_pass: '${{ env.db_pass }}',
-          api_key: '${{ env.api_key }}',
-          port: '${{ env.port }}',
-          access_key: '${{ env.access_key }}',
-          secret_key: '${{ env.secret_key }}',
-          username_key: '${{ env.username_key }}',
-          password_key: '${{ env.password_key }}'
+          db_pass: '${{ secrets.db_pass }}',
+          api_key: '${{ secrets.api_key }}',
+          port: '${{ secrets.port }}',
+          access_key: '${{ secrets.access_key }}',
+          secret_key: '${{ secrets.secret_key }}',
+          username_key: '${{ secrets.username_key }}',
+          password_key: '${{ secrets.password_key }}'
           }
           EOF
       - name: Copy website files to production server
