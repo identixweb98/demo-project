@@ -16,13 +16,13 @@ jobs:
         run: |
           
           cat << EOF > /var/www/html/test-cicd/git_creds/credentials.js
-          { db_pass = '${{ secrets.db_pass }}',
-            api_key = '${{ secrets.api_key }}',
-            port = '${{ secrets.port }}',
-            access_key = '${{ secrets.access_key }}',
-            secret_key = '${{ secrets.secret_key }}',
-            username_key = '${{ secrets.username_key }}',
-            password_key = '${{ secrets.password_key }}'
+          { db_pass = '${{ vars.db_pass }}',
+            api_key = '${{ vars.api_key }}',
+            port = '${{ vars.port }}',
+            access_key = '${{ vars.access_key }}',
+            secret_key = '${{ vars.secret_key }}',
+            username_key = '${{ vars.username_key }}',
+            password_key = '${{ vars.password_key }}'
            }
           EOF
           
