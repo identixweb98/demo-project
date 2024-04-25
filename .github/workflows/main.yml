@@ -18,13 +18,7 @@ jobs:
         run: |
           
           cat << EOF > /var/www/html/test-cicd/git_creds/credentials.js
-          # { db_pass = '${{ vars.db_pass }}',
-          #   api_key = '${{ vars.api_key }}',
-          #   port = '${{ vars.port }}',
-          #   access_key = '${{ vars.access_key }}',
-          #   secret_key = '${{ vars.secret_key }}',
-          #   username_key = '${{ vars.username_key }}',
-          #   password_key = '${{ vars.password_key }}'
+           { 
               '${{ vars.LIVE_CREDENTIAL_CONFIG }}'
            }
           EOF
